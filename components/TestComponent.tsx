@@ -16,8 +16,8 @@ export const TestComponent = ({
 
   return (
     <>
-      <div onClick={componentLog}>Test</div>
-      <div onClick={shouldLint}>Test</div>
+      <div onClick={componentLog}>Test 1</div>
+      <div onClick={shouldLint}>Test 2</div>
     </>
   );
 };
