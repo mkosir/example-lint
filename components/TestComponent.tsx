@@ -1,6 +1,6 @@
 export type TestComponentProps = {
   isEnabled: boolean;
-  onShouldLint: () => void; // should be named from 'shouldLint' to 'onShouldLint' to fix lint error
+  onShouldLint: () => void;
 };
 
 export const TestComponent = ({
@@ -9,7 +9,6 @@ export const TestComponent = ({
 }: TestComponentProps) => {
   console.log("isEnabled", isEnabled);
 
-  // should be named handleComponentLog
   const handleComponentLog = () => {
     console.log("componentLog");
   };
@@ -17,7 +16,24 @@ export const TestComponent = ({
   return (
     <>
       <div onClick={handleComponentLog}>Test 1</div>
+      {/* lint error */}
       <div onClick={onShouldLint}>Test 2</div>
+    </>
+  );
+};
+
+export const TestComponent2 = (props: TestComponentProps) => {
+  console.log("isEnabled", props.isEnabled);
+
+  const handleComponentLog = () => {
+    console.log("componentLog");
+  };
+
+  return (
+    <>
+      <div onClick={handleComponentLog}>Test 1</div>
+      {/* no lint error */}
+      <div onClick={props.onShouldLint}>Test 2</div>
     </>
   );
 };
