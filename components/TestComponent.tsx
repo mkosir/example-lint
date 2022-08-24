@@ -1,6 +1,6 @@
 export type TestComponentProps = {
   isEnabled: boolean;
-  onShouldLint: () => void; // should be named onShouldLint
+  onShouldLint: () => void; // should be named from 'shouldLint' to 'onShouldLint' to fix lint error
 };
 
 export const TestComponent = ({
